@@ -1,0 +1,56 @@
+//定义proto语法类型，proto语法有两种，
+//一种是proto2一种是proto3，默认情况下使用proto2
+syntax = "proto2";
+
+//1.相当于namespace，这个是必须要有的（非java语言的也是一样），主要是避免命名冲突
+//2.在java语言中，如果未指定包名(即未指定java_package属性)，将使用package作为包名
+package tutorial;
+
+//指定生成的java字节码文件所使用的包名，如果不指定，那么就使用package所声明的作为
+//生成字节码文件的包名，通常这个package所声明的并不适合作为java的包名，因为它通常
+//不符合java domain的命名规范
+option java_package = "com.ilidan.protobuf.addressBookProto";
+
+//定义了应当包含文件中所有字节码的文件的名称，如果没有指定，默认使用.proto文件名的
+//驼峰拼写法，例如：对于文件名为my_proto.proto，那么就是使用MyProto作为生成的字节码
+//的文件名
+option java_outer_classname = "AddressBookProtos";
+
+//消息体，消息的结构体可以嵌入另一个消息的结构体信息作为它的属性信息
+message Person {
+
+    //1.数字1,2,3,4，表示属性的标记.1~15标记在编码时比15以上的数字要少一个字节
+    //所以对于经常使用的属性应当标记为15以下，不常使用的标记在15之后，这样会
+    //有更好的性能；
+    //2.每一个属性需要添加一个修饰符（required，optional，repeated）
+    //required：指定该修饰符的属性必须要提供一个值，否则这哥消息将被认为是未被
+    //初始化的，构建这样的消息时，将会抛出RuntimeException，解析这样的消息时将
+    //会抛出IOException
+    //optional：指定该修饰符的属性 可以设置值也可以不设置值。如果没设置值，那么
+    //一个默认的值将会被使用（数值类型：0，string：""，bools：false，
+    //内嵌的消息：消息的"default instance" 或者"prototype"，这个是没有任何属性被设置的）
+    //调用一个访问器来获取没有被明确设置过值的optional或者required属性，那么将会返回默认值
+    //repeated：字段可能会重复多次。可以认为是一个动态数组。
+    required string name = 1;
+    required int32 id = 2;
+    optional string email = 3;
+
+    //定义一个枚举类型
+    enum PhoneType {
+        MOBILE = 1;
+        HOME = 2;
+        WORK = 3;
+    }
+
+    //内嵌的消息体
+    message PhoneNumber {
+        required string number = 1;
+        optional PhoneType type = 2 [default = HOME];
+    }
+
+    repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+    repeated Person persons = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package com.ilidan.protobuf.student;
+
+option optimize_for = SPEED;
+option java_package = "com.ilidan.protobuf.student";
+option java_outer_classname = "DataInfo";
+
+message Student{
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
