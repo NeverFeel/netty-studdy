@@ -20,3 +20,5 @@
 >2.通过proto编译器对消息体文件进行编译，生成对于的java类文件
 
 >3.使用protobuf的API进行操作
+
+>4.netty使用protobuf
