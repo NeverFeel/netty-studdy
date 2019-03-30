@@ -1,0 +1,43 @@
+syntax = "proto2";
+
+package com.ilidan.protobuf.animal;
+
+option optimize_for = SPEED;
+option java_package = "com.ilidan.protobuf.animal";
+option java_outer_classname = "AnimalData";
+
+message Animal {
+
+    enum AnimalType {
+        CAT_TYPE = 1;
+        MONKEY_TYPE = 2;
+        TIGER_TYPE = 3;
+    }
+
+    required AnimalType animalType = 1;
+
+    oneof instanceData {
+        Cat cat = 2;
+        Monkey monkey = 3;
+        Tiger tiger = 4;
+    }
+
+}
+
+message Cat {
+    optional string name = 1;
+    optional string color = 2;
+    optional int32 age = 3;
+}
+
+message Monkey {
+    optional string name = 1;
+    optional string species = 2;
+    optional int32 age = 3;
+}
+
+message Tiger {
+    optional string name = 1;
+    optional string species = 2;
+    optional int32 age = 3;
+}
