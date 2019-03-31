@@ -17,3 +17,6 @@ netty对Google protocol buffers的原生支持
     3.使用protobuf的API进行操作
     4.netty使用protobuf
     5.protobuf最佳实践
+
+### 三、thrift使用
+    1.定义thrift文件信息，添加thrift依赖
