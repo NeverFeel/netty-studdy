@@ -20,3 +20,6 @@ netty对Google protocol buffers的原生支持
 
 ### 三、thrift使用
     1.定义thrift文件信息，添加thrift依赖
+    
+### 四、grpc的使用
+    1.添加插件依赖
