@@ -15,6 +15,9 @@ service PeopleService {
 
     rpc getPeopleByAges (stream PeopleStreamRequest) returns (PeopleList) {
     }
+
+    rpc biData(stream BiRequest) returns (stream BiResponse){
+    }
 }
 
 message PeopleRequest {
@@ -36,5 +39,13 @@ message PeopleStreamResponse {
 }
 
 message PeopleList {
-    repeated PeopleStreamResponse  peopleStreamResponse= 1;
+    repeated PeopleStreamResponse peopleStreamResponse = 1;
+}
+
+message BiRequest {
+    string request_info = 1;
+}
+
+message BiResponse {
+    string response_info = 1;
 }

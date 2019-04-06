@@ -3,8 +3,7 @@ package com.ilidan.grpc.people;
 import com.ilidan.grpc.*;
 import io.grpc.stub.StreamObserver;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
 public class PeopleServiceImpl extends PeopleServiceGrpc.PeopleServiceImplBase {
 
@@ -69,6 +68,28 @@ public class PeopleServiceImpl extends PeopleServiceGrpc.PeopleServiceImplBase {
                 responseObserver.onNext(peopleList);
                 responseObserver.onCompleted();
 
+            }
+        };
+    }
+
+    @Override
+    public StreamObserver<BiRequest> biData(StreamObserver<BiResponse> responseObserver) {
+        return new StreamObserver<BiRequest>() {
+            @Override
+            public void onNext(BiRequest biRequest) {
+                System.out.println("request info："+biRequest.getRequestInfo());
+                responseObserver.onNext(BiResponse.newBuilder().setResponseInfo(UUID.randomUUID().toString()).build());
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                System.out.println(throwable.getMessage());
+            }
+
+            @Override
+            public void onCompleted() {//客户端调用完成
+                //TODO 处理逻辑
+                responseObserver.onCompleted();
             }
         };
     }

@@ -123,6 +123,38 @@ public final class PeopleServiceGrpc {
      return getGetPeopleByAgesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<BiRequest,
+      BiResponse> getBiDataMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "biData",
+      requestType = BiRequest.class,
+      responseType = BiResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+  public static io.grpc.MethodDescriptor<BiRequest,
+      BiResponse> getBiDataMethod() {
+    io.grpc.MethodDescriptor<BiRequest, BiResponse> getBiDataMethod;
+    if ((getBiDataMethod = PeopleServiceGrpc.getBiDataMethod) == null) {
+      synchronized (PeopleServiceGrpc.class) {
+        if ((getBiDataMethod = PeopleServiceGrpc.getBiDataMethod) == null) {
+          PeopleServiceGrpc.getBiDataMethod = getBiDataMethod = 
+              io.grpc.MethodDescriptor.<BiRequest, BiResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "com.ilidan.grpc.PeopleService", "biData"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  BiRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  BiResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new PeopleServiceMethodDescriptorSupplier("biData"))
+                  .build();
+          }
+        }
+     }
+     return getBiDataMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -171,6 +203,13 @@ public final class PeopleServiceGrpc {
       return asyncUnimplementedStreamingCall(getGetPeopleByAgesMethod(), responseObserver);
     }
 
+    /**
+     */
+    public io.grpc.stub.StreamObserver<BiRequest> biData(
+        io.grpc.stub.StreamObserver<BiResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getBiDataMethod(), responseObserver);
+    }
+
     @Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -194,6 +233,13 @@ public final class PeopleServiceGrpc {
                 PeopleStreamRequest,
                 PeopleList>(
                   this, METHODID_GET_PEOPLE_BY_AGES)))
+          .addMethod(
+            getBiDataMethod(),
+            asyncBidiStreamingCall(
+              new MethodHandlers<
+                BiRequest,
+                BiResponse>(
+                  this, METHODID_BI_DATA)))
           .build();
     }
   }
@@ -238,6 +284,14 @@ public final class PeopleServiceGrpc {
         io.grpc.stub.StreamObserver<PeopleList> responseObserver) {
       return asyncClientStreamingCall(
           getChannel().newCall(getGetPeopleByAgesMethod(), getCallOptions()), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<BiRequest> biData(
+        io.grpc.stub.StreamObserver<BiResponse> responseObserver) {
+      return asyncBidiStreamingCall(
+          getChannel().newCall(getBiDataMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -305,6 +359,7 @@ public final class PeopleServiceGrpc {
   private static final int METHODID_GET_REAL_NAME_BY_USERNAME = 0;
   private static final int METHODID_GET_PEOPLE_BY_AGE = 1;
   private static final int METHODID_GET_PEOPLE_BY_AGES = 2;
+  private static final int METHODID_BI_DATA = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -344,6 +399,9 @@ public final class PeopleServiceGrpc {
         case METHODID_GET_PEOPLE_BY_AGES:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getPeopleByAges(
               (io.grpc.stub.StreamObserver<PeopleList>) responseObserver);
+        case METHODID_BI_DATA:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.biData(
+              (io.grpc.stub.StreamObserver<BiResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -398,6 +456,7 @@ public final class PeopleServiceGrpc {
               .addMethod(getGetRealNameByUsernameMethod())
               .addMethod(getGetPeopleByAgeMethod())
               .addMethod(getGetPeopleByAgesMethod())
+              .addMethod(getBiDataMethod())
               .build();
         }
       }
