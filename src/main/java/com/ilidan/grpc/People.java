@@ -34,6 +34,11 @@ public final class People {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_ilidan_grpc_PeopleStreamResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ilidan_grpc_PeopleList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ilidan_grpc_PeopleList_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -48,15 +53,17 @@ public final class People {
       "onse\022\020\n\010realName\030\001 \001(\t\"\"\n\023PeopleStreamRe" +
       "quest\022\013\n\003age\030\001 \001(\005\"B\n\024PeopleStreamRespon" +
       "se\022\014\n\004name\030\001 \001(\t\022\017\n\007address\030\002 \001(\t\022\013\n\003age" +
-      "\030\003 \001(\0052\262\002\n\rPeopleService\022Z\n\025getRealNameB" +
-      "yUsername\022\036.com.ilidan.grpc.PeopleReques" +
-      "t\032\037.com.ilidan.grpc.PeopleResponse\"\000\022a\n\016" +
-      "getPeopleByAge\022$.com.ilidan.grpc.PeopleS" +
-      "treamRequest\032%.com.ilidan.grpc.PeopleStr" +
-      "eamResponse\"\0000\001\022b\n\017getPeopleByAges\022$.com" +
-      ".ilidan.grpc.PeopleStreamRequest\032%.com.i" +
-      "lidan.grpc.PeopleStreamResponse\"\000(\001B\033\n\017c" +
-      "om.ilidan.grpcB\006PeopleP\001b\006proto3"
+      "\030\003 \001(\005\"Q\n\nPeopleList\022C\n\024peopleStreamResp" +
+      "onse\030\001 \003(\0132%.com.ilidan.grpc.PeopleStrea" +
+      "mResponse2\250\002\n\rPeopleService\022Z\n\025getRealNa" +
+      "meByUsername\022\036.com.ilidan.grpc.PeopleReq" +
+      "uest\032\037.com.ilidan.grpc.PeopleResponse\"\000\022" +
+      "a\n\016getPeopleByAge\022$.com.ilidan.grpc.Peop" +
+      "leStreamRequest\032%.com.ilidan.grpc.People" +
+      "StreamResponse\"\0000\001\022X\n\017getPeopleByAges\022$." +
+      "com.ilidan.grpc.PeopleStreamRequest\032\033.co" +
+      "m.ilidan.grpc.PeopleList\"\000(\001B\033\n\017com.ilid" +
+      "an.grpcB\006PeopleP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -94,6 +101,12 @@ public final class People {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_PeopleStreamResponse_descriptor,
         new String[] { "Name", "Address", "Age", });
+    internal_static_com_ilidan_grpc_PeopleList_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_ilidan_grpc_PeopleList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ilidan_grpc_PeopleList_descriptor,
+        new String[] { "PeopleStreamResponse", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

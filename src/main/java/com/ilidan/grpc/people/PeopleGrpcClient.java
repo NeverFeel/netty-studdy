@@ -1,12 +1,11 @@
 package com.ilidan.grpc.people;
 
+import com.ilidan.grpc.PeopleList;
 import com.ilidan.grpc.PeopleServiceGrpc;
 import com.ilidan.grpc.PeopleStreamRequest;
-import com.ilidan.grpc.PeopleStreamResponse;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-
-import java.util.Iterator;
+import io.grpc.stub.StreamObserver;
 
 public class PeopleGrpcClient {
 
@@ -15,10 +14,10 @@ public class PeopleGrpcClient {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress(ADDRESS, PORT)
-                .usePlaintext()
-                .build();
-        PeopleServiceGrpc.PeopleServiceBlockingStub stub = PeopleServiceGrpc.newBlockingStub(channel);
+//        ManagedChannel channel = ManagedChannelBuilder.forAddress(ADDRESS, PORT)
+//                .usePlaintext()
+//                .build();
+//        PeopleServiceGrpc.PeopleServiceBlockingStub stub = PeopleServiceGrpc.newBlockingStub(channel);
 
 //        //普通调用
 //        for(int i = 0; i<5; i++){
@@ -27,14 +26,50 @@ public class PeopleGrpcClient {
 //            Thread.sleep(1000);
 //        }
 
-        //服务端输出流
-        Iterator<PeopleStreamResponse> iterator = stub.getPeopleByAge(PeopleStreamRequest.newBuilder().setAge(25).build());
-        while (iterator.hasNext()) {
-            PeopleStreamResponse next = iterator.next();
-            System.out.println(next.getName() + "," + next.getAge() + "," + next.getAddress());
-        }
+//        //服务端输出流
+//        Iterator<PeopleStreamResponse> iterator = stub.getPeopleByAge(PeopleStreamRequest.newBuilder().setAge(25).build());
+//        while (iterator.hasNext()) {
+//            PeopleStreamResponse next = iterator.next();
+//            System.out.println(next.getName() + "," + next.getAge() + "," + next.getAddress());
+//        }
 
+        //客户端流
+        ManagedChannel channel = ManagedChannelBuilder.forAddress(ADDRESS, PORT).usePlaintext().build();
 
+        PeopleServiceGrpc.PeopleServiceStub peopleServiceStub = PeopleServiceGrpc.newStub(channel);
+        StreamObserver<PeopleStreamRequest> streamRequestStreamObserver = peopleServiceStub.getPeopleByAges(
+                new StreamObserver<PeopleList>() {
+                    //服务端调用onNext方法时该方法会被调用
+            @Override
+            public void onNext(PeopleList peopleList) {
+                if(peopleList.getPeopleStreamResponseList() == null||peopleList.getPeopleStreamResponseList().size() == 0){
+                    System.out.println("不存在该年龄的数据!");
+                    return;
+                }
+                peopleList.getPeopleStreamResponseList().forEach(item->{
+                    System.out.println(item.getName()+","+item.getAge()+","+item.getAddress());;
+                });
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                System.out.println(throwable.getMessage());
+            }
+
+            //服务端调用onCompleted方法时，该方法会被调用
+            @Override
+            public void onCompleted() {
+                System.out.println("complete!");
+            }
+        });
+
+        streamRequestStreamObserver.onNext(PeopleStreamRequest.newBuilder().setAge(22).build());
+        streamRequestStreamObserver.onNext(PeopleStreamRequest.newBuilder().setAge(23).build());
+        streamRequestStreamObserver.onNext(PeopleStreamRequest.newBuilder().setAge(24).build());
+
+        streamRequestStreamObserver.onCompleted();
+
+        Thread.sleep(10000);
     }
 
 }

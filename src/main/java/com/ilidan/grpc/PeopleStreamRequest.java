@@ -251,7 +251,7 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.ilidan.grpc.PeopleStreamRequest)
-      com.ilidan.grpc.PeopleStreamRequestOrBuilder {
+      PeopleStreamRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return People.internal_static_com_ilidan_grpc_PeopleStreamRequest_descriptor;

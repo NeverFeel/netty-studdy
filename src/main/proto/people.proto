@@ -7,11 +7,14 @@ option java_outer_classname = "People";
 option java_multiple_files = true;
 
 service PeopleService {
-    rpc getRealNameByUsername (PeopleRequest) returns (PeopleResponse) {}
+    rpc getRealNameByUsername (PeopleRequest) returns (PeopleResponse) {
+    }
 
-    rpc getPeopleByAge (PeopleStreamRequest) returns (stream PeopleStreamResponse) {}
+    rpc getPeopleByAge (PeopleStreamRequest) returns (stream PeopleStreamResponse) {
+    }
 
-    rpc getPeopleByAges(stream PeopleStreamRequest) returns(PeopleStreamResponse){}
+    rpc getPeopleByAges (stream PeopleStreamRequest) returns (PeopleList) {
+    }
 }
 
 message PeopleRequest {
@@ -32,3 +35,6 @@ message PeopleStreamResponse {
     int32 age = 3;
 }
 
+message PeopleList {
+    repeated PeopleStreamResponse  peopleStreamResponse= 1;
+}

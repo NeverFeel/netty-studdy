@@ -92,21 +92,21 @@ public final class PeopleServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<PeopleStreamRequest,
-      PeopleStreamResponse> getGetPeopleByAgesMethod;
+      PeopleList> getGetPeopleByAgesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getPeopleByAges",
       requestType = PeopleStreamRequest.class,
-      responseType = PeopleStreamResponse.class,
+      responseType = PeopleList.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
   public static io.grpc.MethodDescriptor<PeopleStreamRequest,
-      PeopleStreamResponse> getGetPeopleByAgesMethod() {
-    io.grpc.MethodDescriptor<PeopleStreamRequest, PeopleStreamResponse> getGetPeopleByAgesMethod;
+      PeopleList> getGetPeopleByAgesMethod() {
+    io.grpc.MethodDescriptor<PeopleStreamRequest, PeopleList> getGetPeopleByAgesMethod;
     if ((getGetPeopleByAgesMethod = PeopleServiceGrpc.getGetPeopleByAgesMethod) == null) {
       synchronized (PeopleServiceGrpc.class) {
         if ((getGetPeopleByAgesMethod = PeopleServiceGrpc.getGetPeopleByAgesMethod) == null) {
           PeopleServiceGrpc.getGetPeopleByAgesMethod = getGetPeopleByAgesMethod = 
-              io.grpc.MethodDescriptor.<PeopleStreamRequest, PeopleStreamResponse>newBuilder()
+              io.grpc.MethodDescriptor.<PeopleStreamRequest, PeopleList>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "com.ilidan.grpc.PeopleService", "getPeopleByAges"))
@@ -114,7 +114,7 @@ public final class PeopleServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   PeopleStreamRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  PeopleStreamResponse.getDefaultInstance()))
+                  PeopleList.getDefaultInstance()))
                   .setSchemaDescriptor(new PeopleServiceMethodDescriptorSupplier("getPeopleByAges"))
                   .build();
           }
@@ -167,7 +167,7 @@ public final class PeopleServiceGrpc {
     /**
      */
     public io.grpc.stub.StreamObserver<PeopleStreamRequest> getPeopleByAges(
-        io.grpc.stub.StreamObserver<PeopleStreamResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<PeopleList> responseObserver) {
       return asyncUnimplementedStreamingCall(getGetPeopleByAgesMethod(), responseObserver);
     }
 
@@ -192,7 +192,7 @@ public final class PeopleServiceGrpc {
             asyncClientStreamingCall(
               new MethodHandlers<
                 PeopleStreamRequest,
-                PeopleStreamResponse>(
+                PeopleList>(
                   this, METHODID_GET_PEOPLE_BY_AGES)))
           .build();
     }
@@ -235,7 +235,7 @@ public final class PeopleServiceGrpc {
     /**
      */
     public io.grpc.stub.StreamObserver<PeopleStreamRequest> getPeopleByAges(
-        io.grpc.stub.StreamObserver<PeopleStreamResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<PeopleList> responseObserver) {
       return asyncClientStreamingCall(
           getChannel().newCall(getGetPeopleByAgesMethod(), getCallOptions()), responseObserver);
     }
@@ -343,7 +343,7 @@ public final class PeopleServiceGrpc {
       switch (methodId) {
         case METHODID_GET_PEOPLE_BY_AGES:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getPeopleByAges(
-              (io.grpc.stub.StreamObserver<PeopleStreamResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<PeopleList>) responseObserver);
         default:
           throw new AssertionError();
       }

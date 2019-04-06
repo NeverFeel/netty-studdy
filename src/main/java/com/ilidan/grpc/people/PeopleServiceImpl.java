@@ -3,6 +3,9 @@ package com.ilidan.grpc.people;
 import com.ilidan.grpc.*;
 import io.grpc.stub.StreamObserver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PeopleServiceImpl extends PeopleServiceGrpc.PeopleServiceImplBase {
 
     @Override
@@ -22,4 +25,57 @@ public class PeopleServiceImpl extends PeopleServiceGrpc.PeopleServiceImplBase {
         responseObserver.onCompleted();
     }
 
+    @Override
+    public StreamObserver<PeopleStreamRequest> getPeopleByAges(StreamObserver<PeopleList> responseObserver) {
+
+        //准备数据
+        PeopleStreamResponse streamResponse1 = PeopleStreamResponse.newBuilder()
+                .setName("张三")
+                .setAge(25)
+                .setAddress("上海浦东")
+                .build();
+
+        PeopleStreamResponse streamResponse2 = PeopleStreamResponse.newBuilder()
+                .setName("李四")
+                .setAge(26)
+                .setAddress("上海宝山")
+                .build();
+
+        PeopleStreamResponse streamResponse3 = PeopleStreamResponse.newBuilder()
+                .setName("王五")
+                .setAge(23)
+                .setAddress("上海普陀")
+                .build();
+
+
+        List<PeopleStreamResponse>  result = new ArrayList<>();
+
+        //以异步的方式进行调用
+        return new StreamObserver<PeopleStreamRequest>() {
+            //客户端调用StreamObserver的onNext方法时，该方法会被调用
+            @Override
+            public void onNext(PeopleStreamRequest peopleStreamRequest) {
+                System.out.println("age:" + peopleStreamRequest.getAge());
+                //添加数据的判断逻辑
+                if(23 == peopleStreamRequest.getAge()){
+                    result.add(streamResponse3);
+                }
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                System.out.println(throwable.getMessage());
+            }
+
+            @Override
+            public void onCompleted() {
+                PeopleList.Builder builder = PeopleList.newBuilder();
+                for(PeopleStreamResponse response : result ){
+                    builder.addPeopleStreamResponse(response);
+                }
+                responseObserver.onNext(builder.build());
+                responseObserver.onCompleted();
+            }
+        };
+    }
 }

@@ -25,3 +25,4 @@ netty对Google protocol buffers的原生支持
     1.添加插件依赖
     2.添加grpc demo
     3.服务端流
+    4.客户端流
