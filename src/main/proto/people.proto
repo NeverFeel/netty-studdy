@@ -6,16 +6,29 @@ option java_package = "com.ilidan.grpc";
 option java_outer_classname = "People";
 option java_multiple_files = true;
 
-service PeopleService{
-    rpc getRealNameByUsername(PeopleRequest) returns (PeopleResponse){
+service PeopleService {
+    rpc getRealNameByUsername (PeopleRequest) returns (PeopleResponse) {}
 
-    }
+    rpc getPeopleByAge (PeopleStreamRequest) returns (stream PeopleStreamResponse) {}
+
+    rpc getPeopleByAges(stream PeopleStreamRequest) returns(PeopleStreamResponse){}
 }
 
-message PeopleRequest{
+message PeopleRequest {
     string username = 1;
 }
 
-message PeopleResponse{
+message PeopleResponse {
     string realName = 1;
 }
+
+message PeopleStreamRequest {
+    int32 age = 1;
+}
+
+message PeopleStreamResponse {
+    string name = 1;
+    string address = 2;
+    int32 age = 3;
+}
+

@@ -4,19 +4,19 @@
 package com.ilidan.grpc;
 
 /**
- * Protobuf type {@code com.ilidan.grpc.PeopleRequest}
+ * Protobuf type {@code com.ilidan.grpc.PeopleStreamRequest}
  */
-public  final class PeopleRequest extends
+public  final class PeopleStreamRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:com.ilidan.grpc.PeopleRequest)
-    PeopleRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:com.ilidan.grpc.PeopleStreamRequest)
+    PeopleStreamRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use PeopleRequest.newBuilder() to construct.
-  private PeopleRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PeopleStreamRequest.newBuilder() to construct.
+  private PeopleStreamRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private PeopleRequest() {
-    username_ = "";
+  private PeopleStreamRequest() {
+    age_ = 0;
   }
 
   @Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PeopleRequest(
+  private PeopleStreamRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -43,10 +43,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            String s = input.readStringRequireUtf8();
+          case 8: {
 
-            username_ = s;
+            age_ = input.readInt32();
             break;
           }
           default: {
@@ -70,49 +69,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return People.internal_static_com_ilidan_grpc_PeopleRequest_descriptor;
+    return People.internal_static_com_ilidan_grpc_PeopleStreamRequest_descriptor;
   }
 
   @Override
   protected FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return People.internal_static_com_ilidan_grpc_PeopleRequest_fieldAccessorTable
+    return People.internal_static_com_ilidan_grpc_PeopleStreamRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            PeopleRequest.class, Builder.class);
+            PeopleStreamRequest.class, Builder.class);
   }
 
-  public static final int USERNAME_FIELD_NUMBER = 1;
-  private volatile Object username_;
+  public static final int AGE_FIELD_NUMBER = 1;
+  private int age_;
   /**
-   * <code>string username = 1;</code>
+   * <code>int32 age = 1;</code>
    */
-  public String getUsername() {
-    Object ref = username_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      username_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string username = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getUsernameBytes() {
-    Object ref = username_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      username_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getAge() {
+    return age_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -129,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getUsernameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
+    if (age_ != 0) {
+      output.writeInt32(1, age_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getUsernameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
+    if (age_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, age_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -154,14 +129,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof PeopleRequest)) {
+    if (!(obj instanceof PeopleStreamRequest)) {
       return super.equals(obj);
     }
-    PeopleRequest other = (PeopleRequest) obj;
+    PeopleStreamRequest other = (PeopleStreamRequest) obj;
 
     boolean result = true;
-    result = result && getUsername()
-        .equals(other.getUsername());
+    result = result && (getAge()
+        == other.getAge());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,76 +148,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getUsername().hashCode();
+    hash = (37 * hash) + AGE_FIELD_NUMBER;
+    hash = (53 * hash) + getAge();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PeopleRequest parseFrom(byte[] data)
+  public static PeopleStreamRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PeopleRequest parseFrom(java.io.InputStream input)
+  public static PeopleStreamRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PeopleRequest parseDelimitedFrom(java.io.InputStream input)
+  public static PeopleStreamRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static PeopleRequest parseDelimitedFrom(
+  public static PeopleStreamRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PeopleRequest parseFrom(
+  public static PeopleStreamRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,7 +230,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(PeopleRequest prototype) {
+  public static Builder newBuilder(PeopleStreamRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @Override
@@ -271,26 +246,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.ilidan.grpc.PeopleRequest}
+   * Protobuf type {@code com.ilidan.grpc.PeopleStreamRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.ilidan.grpc.PeopleRequest)
-      PeopleRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:com.ilidan.grpc.PeopleStreamRequest)
+      com.ilidan.grpc.PeopleStreamRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return People.internal_static_com_ilidan_grpc_PeopleRequest_descriptor;
+      return People.internal_static_com_ilidan_grpc_PeopleStreamRequest_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return People.internal_static_com_ilidan_grpc_PeopleRequest_fieldAccessorTable
+      return People.internal_static_com_ilidan_grpc_PeopleStreamRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PeopleRequest.class, Builder.class);
+              PeopleStreamRequest.class, Builder.class);
     }
 
-    // Construct using com.ilidan.grpc.PeopleRequest.newBuilder()
+    // Construct using com.ilidan.grpc.PeopleStreamRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -308,7 +283,7 @@ private static final long serialVersionUID = 0L;
     @Override
     public Builder clear() {
       super.clear();
-      username_ = "";
+      age_ = 0;
 
       return this;
     }
@@ -316,17 +291,17 @@ private static final long serialVersionUID = 0L;
     @Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return People.internal_static_com_ilidan_grpc_PeopleRequest_descriptor;
+      return People.internal_static_com_ilidan_grpc_PeopleStreamRequest_descriptor;
     }
 
     @Override
-    public PeopleRequest getDefaultInstanceForType() {
-      return PeopleRequest.getDefaultInstance();
+    public PeopleStreamRequest getDefaultInstanceForType() {
+      return PeopleStreamRequest.getDefaultInstance();
     }
 
     @Override
-    public PeopleRequest build() {
-      PeopleRequest result = buildPartial();
+    public PeopleStreamRequest build() {
+      PeopleStreamRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -334,9 +309,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @Override
-    public PeopleRequest buildPartial() {
-      PeopleRequest result = new PeopleRequest(this);
-      result.username_ = username_;
+    public PeopleStreamRequest buildPartial() {
+      PeopleStreamRequest result = new PeopleStreamRequest(this);
+      result.age_ = age_;
       onBuilt();
       return result;
     }
@@ -375,19 +350,18 @@ private static final long serialVersionUID = 0L;
     }
     @Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof PeopleRequest) {
-        return mergeFrom((PeopleRequest)other);
+      if (other instanceof PeopleStreamRequest) {
+        return mergeFrom((PeopleStreamRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(PeopleRequest other) {
-      if (other == PeopleRequest.getDefaultInstance()) return this;
-      if (!other.getUsername().isEmpty()) {
-        username_ = other.username_;
-        onChanged();
+    public Builder mergeFrom(PeopleStreamRequest other) {
+      if (other == PeopleStreamRequest.getDefaultInstance()) return this;
+      if (other.getAge() != 0) {
+        setAge(other.getAge());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -404,11 +378,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      PeopleRequest parsedMessage = null;
+      PeopleStreamRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (PeopleRequest) e.getUnfinishedMessage();
+        parsedMessage = (PeopleStreamRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -418,71 +392,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object username_ = "";
+    private int age_ ;
     /**
-     * <code>string username = 1;</code>
+     * <code>int32 age = 1;</code>
      */
-    public String getUsername() {
-      Object ref = username_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        username_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
+    public int getAge() {
+      return age_;
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>int32 age = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getUsernameBytes() {
-      Object ref = username_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        username_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string username = 1;</code>
-     */
-    public Builder setUsername(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      username_ = value;
+    public Builder setAge(int value) {
+      
+      age_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string username = 1;</code>
+     * <code>int32 age = 1;</code>
      */
-    public Builder clearUsername() {
+    public Builder clearAge() {
       
-      username_ = getDefaultInstance().getUsername();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string username = 1;</code>
-     */
-    public Builder setUsernameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      username_ = value;
+      age_ = 0;
       onChanged();
       return this;
     }
@@ -499,41 +430,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:com.ilidan.grpc.PeopleRequest)
+    // @@protoc_insertion_point(builder_scope:com.ilidan.grpc.PeopleStreamRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:com.ilidan.grpc.PeopleRequest)
-  private static final PeopleRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:com.ilidan.grpc.PeopleStreamRequest)
+  private static final PeopleStreamRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new PeopleRequest();
+    DEFAULT_INSTANCE = new PeopleStreamRequest();
   }
 
-  public static PeopleRequest getDefaultInstance() {
+  public static PeopleStreamRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<PeopleRequest>
-      PARSER = new com.google.protobuf.AbstractParser<PeopleRequest>() {
+  private static final com.google.protobuf.Parser<PeopleStreamRequest>
+      PARSER = new com.google.protobuf.AbstractParser<PeopleStreamRequest>() {
     @Override
-    public PeopleRequest parsePartialFrom(
+    public PeopleStreamRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PeopleRequest(input, extensionRegistry);
+      return new PeopleStreamRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<PeopleRequest> parser() {
+  public static com.google.protobuf.Parser<PeopleStreamRequest> parser() {
     return PARSER;
   }
 
   @Override
-  public com.google.protobuf.Parser<PeopleRequest> getParserForType() {
+  public com.google.protobuf.Parser<PeopleStreamRequest> getParserForType() {
     return PARSER;
   }
 
   @Override
-  public PeopleRequest getDefaultInstanceForType() {
+  public PeopleStreamRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

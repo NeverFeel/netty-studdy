@@ -27,36 +27,100 @@ public final class PeopleServiceGrpc {
   public static final String SERVICE_NAME = "com.ilidan.grpc.PeopleService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.ilidan.grpc.PeopleRequest,
-      com.ilidan.grpc.PeopleResponse> getGetRealNameByUsernameMethod;
+  private static volatile io.grpc.MethodDescriptor<PeopleRequest,
+      PeopleResponse> getGetRealNameByUsernameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getRealNameByUsername",
-      requestType = com.ilidan.grpc.PeopleRequest.class,
-      responseType = com.ilidan.grpc.PeopleResponse.class,
+      requestType = PeopleRequest.class,
+      responseType = PeopleResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.ilidan.grpc.PeopleRequest,
-      com.ilidan.grpc.PeopleResponse> getGetRealNameByUsernameMethod() {
-    io.grpc.MethodDescriptor<com.ilidan.grpc.PeopleRequest, com.ilidan.grpc.PeopleResponse> getGetRealNameByUsernameMethod;
+  public static io.grpc.MethodDescriptor<PeopleRequest,
+      PeopleResponse> getGetRealNameByUsernameMethod() {
+    io.grpc.MethodDescriptor<PeopleRequest, PeopleResponse> getGetRealNameByUsernameMethod;
     if ((getGetRealNameByUsernameMethod = PeopleServiceGrpc.getGetRealNameByUsernameMethod) == null) {
       synchronized (PeopleServiceGrpc.class) {
         if ((getGetRealNameByUsernameMethod = PeopleServiceGrpc.getGetRealNameByUsernameMethod) == null) {
           PeopleServiceGrpc.getGetRealNameByUsernameMethod = getGetRealNameByUsernameMethod = 
-              io.grpc.MethodDescriptor.<com.ilidan.grpc.PeopleRequest, com.ilidan.grpc.PeopleResponse>newBuilder()
+              io.grpc.MethodDescriptor.<PeopleRequest, PeopleResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "com.ilidan.grpc.PeopleService", "getRealNameByUsername"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.ilidan.grpc.PeopleRequest.getDefaultInstance()))
+                  PeopleRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.ilidan.grpc.PeopleResponse.getDefaultInstance()))
+                  PeopleResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new PeopleServiceMethodDescriptorSupplier("getRealNameByUsername"))
                   .build();
           }
         }
      }
      return getGetRealNameByUsernameMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<PeopleStreamRequest,
+      PeopleStreamResponse> getGetPeopleByAgeMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getPeopleByAge",
+      requestType = PeopleStreamRequest.class,
+      responseType = PeopleStreamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<PeopleStreamRequest,
+      PeopleStreamResponse> getGetPeopleByAgeMethod() {
+    io.grpc.MethodDescriptor<PeopleStreamRequest, PeopleStreamResponse> getGetPeopleByAgeMethod;
+    if ((getGetPeopleByAgeMethod = PeopleServiceGrpc.getGetPeopleByAgeMethod) == null) {
+      synchronized (PeopleServiceGrpc.class) {
+        if ((getGetPeopleByAgeMethod = PeopleServiceGrpc.getGetPeopleByAgeMethod) == null) {
+          PeopleServiceGrpc.getGetPeopleByAgeMethod = getGetPeopleByAgeMethod = 
+              io.grpc.MethodDescriptor.<PeopleStreamRequest, PeopleStreamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "com.ilidan.grpc.PeopleService", "getPeopleByAge"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  PeopleStreamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  PeopleStreamResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new PeopleServiceMethodDescriptorSupplier("getPeopleByAge"))
+                  .build();
+          }
+        }
+     }
+     return getGetPeopleByAgeMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<PeopleStreamRequest,
+      PeopleStreamResponse> getGetPeopleByAgesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getPeopleByAges",
+      requestType = PeopleStreamRequest.class,
+      responseType = PeopleStreamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<PeopleStreamRequest,
+      PeopleStreamResponse> getGetPeopleByAgesMethod() {
+    io.grpc.MethodDescriptor<PeopleStreamRequest, PeopleStreamResponse> getGetPeopleByAgesMethod;
+    if ((getGetPeopleByAgesMethod = PeopleServiceGrpc.getGetPeopleByAgesMethod) == null) {
+      synchronized (PeopleServiceGrpc.class) {
+        if ((getGetPeopleByAgesMethod = PeopleServiceGrpc.getGetPeopleByAgesMethod) == null) {
+          PeopleServiceGrpc.getGetPeopleByAgesMethod = getGetPeopleByAgesMethod = 
+              io.grpc.MethodDescriptor.<PeopleStreamRequest, PeopleStreamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "com.ilidan.grpc.PeopleService", "getPeopleByAges"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  PeopleStreamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  PeopleStreamResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new PeopleServiceMethodDescriptorSupplier("getPeopleByAges"))
+                  .build();
+          }
+        }
+     }
+     return getGetPeopleByAgesMethod;
   }
 
   /**
@@ -88,9 +152,23 @@ public final class PeopleServiceGrpc {
 
     /**
      */
-    public void getRealNameByUsername(com.ilidan.grpc.PeopleRequest request,
-        io.grpc.stub.StreamObserver<com.ilidan.grpc.PeopleResponse> responseObserver) {
+    public void getRealNameByUsername(PeopleRequest request,
+        io.grpc.stub.StreamObserver<PeopleResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetRealNameByUsernameMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getPeopleByAge(PeopleStreamRequest request,
+        io.grpc.stub.StreamObserver<PeopleStreamResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetPeopleByAgeMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<PeopleStreamRequest> getPeopleByAges(
+        io.grpc.stub.StreamObserver<PeopleStreamResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getGetPeopleByAgesMethod(), responseObserver);
     }
 
     @Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -99,9 +177,23 @@ public final class PeopleServiceGrpc {
             getGetRealNameByUsernameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.ilidan.grpc.PeopleRequest,
-                com.ilidan.grpc.PeopleResponse>(
+                PeopleRequest,
+                PeopleResponse>(
                   this, METHODID_GET_REAL_NAME_BY_USERNAME)))
+          .addMethod(
+            getGetPeopleByAgeMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                PeopleStreamRequest,
+                PeopleStreamResponse>(
+                  this, METHODID_GET_PEOPLE_BY_AGE)))
+          .addMethod(
+            getGetPeopleByAgesMethod(),
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                PeopleStreamRequest,
+                PeopleStreamResponse>(
+                  this, METHODID_GET_PEOPLE_BY_AGES)))
           .build();
     }
   }
@@ -126,10 +218,26 @@ public final class PeopleServiceGrpc {
 
     /**
      */
-    public void getRealNameByUsername(com.ilidan.grpc.PeopleRequest request,
-        io.grpc.stub.StreamObserver<com.ilidan.grpc.PeopleResponse> responseObserver) {
+    public void getRealNameByUsername(PeopleRequest request,
+        io.grpc.stub.StreamObserver<PeopleResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetRealNameByUsernameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getPeopleByAge(PeopleStreamRequest request,
+        io.grpc.stub.StreamObserver<PeopleStreamResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetPeopleByAgeMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<PeopleStreamRequest> getPeopleByAges(
+        io.grpc.stub.StreamObserver<PeopleStreamResponse> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(getGetPeopleByAgesMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -153,9 +261,17 @@ public final class PeopleServiceGrpc {
 
     /**
      */
-    public com.ilidan.grpc.PeopleResponse getRealNameByUsername(com.ilidan.grpc.PeopleRequest request) {
+    public PeopleResponse getRealNameByUsername(PeopleRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetRealNameByUsernameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<PeopleStreamResponse> getPeopleByAge(
+        PeopleStreamRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetPeopleByAgeMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,14 +295,16 @@ public final class PeopleServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.ilidan.grpc.PeopleResponse> getRealNameByUsername(
-        com.ilidan.grpc.PeopleRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<PeopleResponse> getRealNameByUsername(
+        PeopleRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetRealNameByUsernameMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GET_REAL_NAME_BY_USERNAME = 0;
+  private static final int METHODID_GET_PEOPLE_BY_AGE = 1;
+  private static final int METHODID_GET_PEOPLE_BY_AGES = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -206,8 +324,12 @@ public final class PeopleServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_REAL_NAME_BY_USERNAME:
-          serviceImpl.getRealNameByUsername((com.ilidan.grpc.PeopleRequest) request,
-              (io.grpc.stub.StreamObserver<com.ilidan.grpc.PeopleResponse>) responseObserver);
+          serviceImpl.getRealNameByUsername((PeopleRequest) request,
+              (io.grpc.stub.StreamObserver<PeopleResponse>) responseObserver);
+          break;
+        case METHODID_GET_PEOPLE_BY_AGE:
+          serviceImpl.getPeopleByAge((PeopleStreamRequest) request,
+              (io.grpc.stub.StreamObserver<PeopleStreamResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -219,6 +341,9 @@ public final class PeopleServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_PEOPLE_BY_AGES:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getPeopleByAges(
+              (io.grpc.stub.StreamObserver<PeopleStreamResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -271,6 +396,8 @@ public final class PeopleServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PeopleServiceFileDescriptorSupplier())
               .addMethod(getGetRealNameByUsernameMethod())
+              .addMethod(getGetPeopleByAgeMethod())
+              .addMethod(getGetPeopleByAgesMethod())
               .build();
         }
       }
