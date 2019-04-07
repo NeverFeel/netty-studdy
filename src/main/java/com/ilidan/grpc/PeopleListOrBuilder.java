@@ -10,12 +10,12 @@ public interface PeopleListOrBuilder extends
   /**
    * <code>repeated .com.ilidan.grpc.PeopleStreamResponse peopleStreamResponse = 1;</code>
    */
-  java.util.List<PeopleStreamResponse>
+  java.util.List<com.ilidan.grpc.PeopleStreamResponse> 
       getPeopleStreamResponseList();
   /**
    * <code>repeated .com.ilidan.grpc.PeopleStreamResponse peopleStreamResponse = 1;</code>
    */
-  PeopleStreamResponse getPeopleStreamResponse(int index);
+  com.ilidan.grpc.PeopleStreamResponse getPeopleStreamResponse(int index);
   /**
    * <code>repeated .com.ilidan.grpc.PeopleStreamResponse peopleStreamResponse = 1;</code>
    */
@@ -23,11 +23,11 @@ public interface PeopleListOrBuilder extends
   /**
    * <code>repeated .com.ilidan.grpc.PeopleStreamResponse peopleStreamResponse = 1;</code>
    */
-  java.util.List<? extends PeopleStreamResponseOrBuilder>
+  java.util.List<? extends com.ilidan.grpc.PeopleStreamResponseOrBuilder> 
       getPeopleStreamResponseOrBuilderList();
   /**
    * <code>repeated .com.ilidan.grpc.PeopleStreamResponse peopleStreamResponse = 1;</code>
    */
-  PeopleStreamResponseOrBuilder getPeopleStreamResponseOrBuilder(
-          int index);
+  com.ilidan.grpc.PeopleStreamResponseOrBuilder getPeopleStreamResponseOrBuilder(
+      int index);
 }

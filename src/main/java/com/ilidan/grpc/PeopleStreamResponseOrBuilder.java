@@ -10,7 +10,7 @@ public interface PeopleStreamResponseOrBuilder extends
   /**
    * <code>string name = 1;</code>
    */
-  String getName();
+  java.lang.String getName();
   /**
    * <code>string name = 1;</code>
    */
@@ -20,7 +20,7 @@ public interface PeopleStreamResponseOrBuilder extends
   /**
    * <code>string address = 2;</code>
    */
-  String getAddress();
+  java.lang.String getAddress();
   /**
    * <code>string address = 2;</code>
    */

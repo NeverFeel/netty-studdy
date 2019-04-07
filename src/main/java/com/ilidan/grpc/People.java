@@ -57,7 +57,7 @@ public final class People {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\014people.proto\022\017com.ilidan.grpc\"!\n\rPeopl" +
       "eRequest\022\020\n\010username\030\001 \001(\t\"\"\n\016PeopleResp" +
       "onse\022\020\n\010realName\030\001 \001(\t\"\"\n\023PeopleStreamRe" +
@@ -96,43 +96,43 @@ public final class People {
     internal_static_com_ilidan_grpc_PeopleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_PeopleRequest_descriptor,
-        new String[] { "Username", });
+        new java.lang.String[] { "Username", });
     internal_static_com_ilidan_grpc_PeopleResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_ilidan_grpc_PeopleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_PeopleResponse_descriptor,
-        new String[] { "RealName", });
+        new java.lang.String[] { "RealName", });
     internal_static_com_ilidan_grpc_PeopleStreamRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_ilidan_grpc_PeopleStreamRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_PeopleStreamRequest_descriptor,
-        new String[] { "Age", });
+        new java.lang.String[] { "Age", });
     internal_static_com_ilidan_grpc_PeopleStreamResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_ilidan_grpc_PeopleStreamResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_PeopleStreamResponse_descriptor,
-        new String[] { "Name", "Address", "Age", });
+        new java.lang.String[] { "Name", "Address", "Age", });
     internal_static_com_ilidan_grpc_PeopleList_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_ilidan_grpc_PeopleList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_PeopleList_descriptor,
-        new String[] { "PeopleStreamResponse", });
+        new java.lang.String[] { "PeopleStreamResponse", });
     internal_static_com_ilidan_grpc_BiRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_ilidan_grpc_BiRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_BiRequest_descriptor,
-        new String[] { "RequestInfo", });
+        new java.lang.String[] { "RequestInfo", });
     internal_static_com_ilidan_grpc_BiResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_ilidan_grpc_BiResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ilidan_grpc_BiResponse_descriptor,
-        new String[] { "ResponseInfo", });
+        new java.lang.String[] { "ResponseInfo", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

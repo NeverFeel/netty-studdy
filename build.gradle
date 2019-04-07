@@ -33,7 +33,33 @@ dependencies {
     )
 }
 
+//设置.proto文件读取的位置
+//sourceSets {
+//    main {
+//        proto {
+//            // In addition to the default 'src/main/proto'
+//            srcDir 'src/main/protobuf'
+//            srcDir 'src/main/protocolbuffers'
+//            // In addition to the default '**/*.proto' (use with caution).
+//            // Using an extension other than 'proto' is NOT recommended,
+//            // because when proto files are published along with class files, we can
+//            // only tell the type of a file from its extension.
+//            include '**/*.protodevel'
+//        }
+//        java {
+//            ...
+//        }
+//    }
+//    test {
+//        proto {
+//            // In addition to the default 'src/test/proto'
+//            srcDir 'src/test/protocolbuffers'
+//        }
+//    }
+//}
+
 protobuf {
+
     protoc {
         artifact = "com.google.protobuf:protoc:3.6.1"
     }
@@ -42,9 +68,19 @@ protobuf {
             artifact = 'io.grpc:protoc-gen-grpc-java:1.19.0'
         }
     }
+
+    //设置生成文件的位置默认是在$buildDir/generated/source/proto下
+    generateProtoTasks.generatedFilesBaseDir='src'
+
     generateProtoTasks {
         all()*.plugins {
-            grpc {}
+            grpc {
+                //生成的grpc文件的位置即.proto生成的service文件对应的位置
+                // Write the generated files under
+                // "$generatedFilesBaseDir/$sourceSet/java"
+                outputSubDir = 'java'
+            }
         }
+
     }
 }

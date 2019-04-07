@@ -19,7 +19,7 @@ private static final long serialVersionUID = 0L;
     realName_ = "";
   }
 
-  @Override
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
     if (extensionRegistry == null) {
-      throw new NullPointerException();
+      throw new java.lang.NullPointerException();
     }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -44,7 +44,7 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            String s = input.readStringRequireUtf8();
+            java.lang.String s = input.readStringRequireUtf8();
 
             realName_ = s;
             break;
@@ -70,30 +70,30 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return People.internal_static_com_ilidan_grpc_PeopleResponse_descriptor;
+    return com.ilidan.grpc.People.internal_static_com_ilidan_grpc_PeopleResponse_descriptor;
   }
 
-  @Override
-  protected FieldAccessorTable
+  @java.lang.Override
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return People.internal_static_com_ilidan_grpc_PeopleResponse_fieldAccessorTable
+    return com.ilidan.grpc.People.internal_static_com_ilidan_grpc_PeopleResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            PeopleResponse.class, Builder.class);
+            com.ilidan.grpc.PeopleResponse.class, com.ilidan.grpc.PeopleResponse.Builder.class);
   }
 
   public static final int REALNAME_FIELD_NUMBER = 1;
-  private volatile Object realName_;
+  private volatile java.lang.Object realName_;
   /**
    * <code>string realName = 1;</code>
    */
-  public String getRealName() {
-    Object ref = realName_;
-    if (ref instanceof String) {
-      return (String) ref;
+  public java.lang.String getRealName() {
+    java.lang.Object ref = realName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
+      java.lang.String s = bs.toStringUtf8();
       realName_ = s;
       return s;
     }
@@ -103,11 +103,11 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.protobuf.ByteString
       getRealNameBytes() {
-    Object ref = realName_;
-    if (ref instanceof String) {
+    java.lang.Object ref = realName_;
+    if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
+              (java.lang.String) ref);
       realName_ = b;
       return b;
     } else {
@@ -116,7 +116,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
-  @Override
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
-  @Override
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getRealNameBytes().isEmpty()) {
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
-  @Override
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -149,15 +149,15 @@ private static final long serialVersionUID = 0L;
     return size;
   }
 
-  @Override
-  public boolean equals(final Object obj) {
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof PeopleResponse)) {
+    if (!(obj instanceof com.ilidan.grpc.PeopleResponse)) {
       return super.equals(obj);
     }
-    PeopleResponse other = (PeopleResponse) obj;
+    com.ilidan.grpc.PeopleResponse other = (com.ilidan.grpc.PeopleResponse) obj;
 
     boolean result = true;
     result = result && getRealName()
@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
     return result;
   }
 
-  @Override
+  @java.lang.Override
   public int hashCode() {
     if (memoizedHashCode != 0) {
       return memoizedHashCode;
@@ -180,69 +180,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PeopleResponse parseFrom(byte[] data)
+  public static com.ilidan.grpc.PeopleResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static PeopleResponse parseFrom(java.io.InputStream input)
+  public static com.ilidan.grpc.PeopleResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PeopleResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.ilidan.grpc.PeopleResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static PeopleResponse parseDelimitedFrom(
+  public static com.ilidan.grpc.PeopleResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static PeopleResponse parseFrom(
+  public static com.ilidan.grpc.PeopleResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -250,23 +250,23 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  @Override
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(PeopleResponse prototype) {
+  public static Builder newBuilder(com.ilidan.grpc.PeopleResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
-  @Override
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
   }
 
-  @Override
+  @java.lang.Override
   protected Builder newBuilderForType(
-      BuilderParent parent) {
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
     Builder builder = new Builder(parent);
     return builder;
   }
@@ -276,18 +276,18 @@ private static final long serialVersionUID = 0L;
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
       // @@protoc_insertion_point(builder_implements:com.ilidan.grpc.PeopleResponse)
-      PeopleResponseOrBuilder {
+      com.ilidan.grpc.PeopleResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return People.internal_static_com_ilidan_grpc_PeopleResponse_descriptor;
+      return com.ilidan.grpc.People.internal_static_com_ilidan_grpc_PeopleResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return People.internal_static_com_ilidan_grpc_PeopleResponse_fieldAccessorTable
+      return com.ilidan.grpc.People.internal_static_com_ilidan_grpc_PeopleResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PeopleResponse.class, Builder.class);
+              com.ilidan.grpc.PeopleResponse.class, com.ilidan.grpc.PeopleResponse.Builder.class);
     }
 
     // Construct using com.ilidan.grpc.PeopleResponse.newBuilder()
@@ -296,7 +296,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private Builder(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
     }
@@ -305,7 +305,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
-    @Override
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       realName_ = "";
@@ -313,78 +313,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return People.internal_static_com_ilidan_grpc_PeopleResponse_descriptor;
+      return com.ilidan.grpc.People.internal_static_com_ilidan_grpc_PeopleResponse_descriptor;
     }
 
-    @Override
-    public PeopleResponse getDefaultInstanceForType() {
-      return PeopleResponse.getDefaultInstance();
+    @java.lang.Override
+    public com.ilidan.grpc.PeopleResponse getDefaultInstanceForType() {
+      return com.ilidan.grpc.PeopleResponse.getDefaultInstance();
     }
 
-    @Override
-    public PeopleResponse build() {
-      PeopleResponse result = buildPartial();
+    @java.lang.Override
+    public com.ilidan.grpc.PeopleResponse build() {
+      com.ilidan.grpc.PeopleResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    @Override
-    public PeopleResponse buildPartial() {
-      PeopleResponse result = new PeopleResponse(this);
+    @java.lang.Override
+    public com.ilidan.grpc.PeopleResponse buildPartial() {
+      com.ilidan.grpc.PeopleResponse result = new com.ilidan.grpc.PeopleResponse(this);
       result.realName_ = realName_;
       onBuilt();
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public Builder clone() {
       return (Builder) super.clone();
     }
-    @Override
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.setField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
       return (Builder) super.clearField(field);
     }
-    @Override
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
       return (Builder) super.clearOneof(oneof);
     }
-    @Override
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, Object value) {
+        int index, java.lang.Object value) {
       return (Builder) super.setRepeatedField(field, index, value);
     }
-    @Override
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
-        Object value) {
+        java.lang.Object value) {
       return (Builder) super.addRepeatedField(field, value);
     }
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof PeopleResponse) {
-        return mergeFrom((PeopleResponse)other);
+      if (other instanceof com.ilidan.grpc.PeopleResponse) {
+        return mergeFrom((com.ilidan.grpc.PeopleResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(PeopleResponse other) {
-      if (other == PeopleResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.ilidan.grpc.PeopleResponse other) {
+      if (other == com.ilidan.grpc.PeopleResponse.getDefaultInstance()) return this;
       if (!other.getRealName().isEmpty()) {
         realName_ = other.realName_;
         onChanged();
@@ -394,21 +394,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      PeopleResponse parsedMessage = null;
+      com.ilidan.grpc.PeopleResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (PeopleResponse) e.getUnfinishedMessage();
+        parsedMessage = (com.ilidan.grpc.PeopleResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -418,20 +418,20 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private Object realName_ = "";
+    private java.lang.Object realName_ = "";
     /**
      * <code>string realName = 1;</code>
      */
-    public String getRealName() {
-      Object ref = realName_;
-      if (!(ref instanceof String)) {
+    public java.lang.String getRealName() {
+      java.lang.Object ref = realName_;
+      if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         realName_ = s;
         return s;
       } else {
-        return (String) ref;
+        return (java.lang.String) ref;
       }
     }
     /**
@@ -439,11 +439,11 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ByteString
         getRealNameBytes() {
-      Object ref = realName_;
+      java.lang.Object ref = realName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         realName_ = b;
         return b;
       } else {
@@ -454,7 +454,7 @@ private static final long serialVersionUID = 0L;
      * <code>string realName = 1;</code>
      */
     public Builder setRealName(
-        String value) {
+        java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -486,13 +486,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-    @Override
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.setUnknownFieldsProto3(unknownFields);
     }
 
-    @Override
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -503,18 +503,18 @@ private static final long serialVersionUID = 0L;
   }
 
   // @@protoc_insertion_point(class_scope:com.ilidan.grpc.PeopleResponse)
-  private static final PeopleResponse DEFAULT_INSTANCE;
+  private static final com.ilidan.grpc.PeopleResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new PeopleResponse();
+    DEFAULT_INSTANCE = new com.ilidan.grpc.PeopleResponse();
   }
 
-  public static PeopleResponse getDefaultInstance() {
+  public static com.ilidan.grpc.PeopleResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
   private static final com.google.protobuf.Parser<PeopleResponse>
       PARSER = new com.google.protobuf.AbstractParser<PeopleResponse>() {
-    @Override
+    @java.lang.Override
     public PeopleResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -527,13 +527,13 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
-  @Override
+  @java.lang.Override
   public com.google.protobuf.Parser<PeopleResponse> getParserForType() {
     return PARSER;
   }
 
-  @Override
-  public PeopleResponse getDefaultInstanceForType() {
+  @java.lang.Override
+  public com.ilidan.grpc.PeopleResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
