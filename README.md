@@ -30,3 +30,4 @@ netty对Google protocol buffers的原生支持
     
 ### java nio
     1.IntBuffer和ByteBuffer的使用
+    2.文件通道用法
