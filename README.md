@@ -34,3 +34,5 @@ netty对Google protocol buffers的原生支持
     3.分片ByteBuffer使用
     4.堆外内存DirectByteBuffer的使用
     5.readOnly buffer的使用
+    6.MappedByteBuffer使用
+    7.scattering和gathering
