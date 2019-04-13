@@ -28,6 +28,9 @@ netty对Google protocol buffers的原生支持
     4.客户端流式数据通信
     5.双向流式数据通信
     
-### java nio
+### 五java nio
     1.IntBuffer和ByteBuffer的使用
     2.文件通道用法
+    3.分片ByteBuffer使用
+    4.堆外内存DirectByteBuffer的使用
+    5.readOnly buffer的使用
