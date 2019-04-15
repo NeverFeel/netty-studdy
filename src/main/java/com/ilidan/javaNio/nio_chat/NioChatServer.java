@@ -9,6 +9,8 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -47,12 +49,18 @@ public class NioChatServer {
                 int selectNum = selector.select();
                 System.out.println("选择channel的个数：" + selectNum);
                 if (selectNum == 0) continue;
-                selector.selectedKeys().forEach(selectionKey -> {
+                Set<SelectionKey> keys = selector.selectedKeys();
+                keys.forEach(selectionKey -> {
                     if (selectionKey.isValid()) {//忽略无效的selectionKey
                         handleKey(selectionKey);
                     }
                 });
+
+                //清空selectionKeys的集合
+                keys.clear();
+
             } catch (Exception e) {
+
                 e.printStackTrace();
             }
         }
@@ -91,13 +99,39 @@ public class NioChatServer {
                 Charset charset = Charset.forName("utf-8");
                 String readMessage = String.valueOf(charset.decode(byteBuffer).array());
                 System.out.println(socketChannel + ":" + readMessage);
+                sendMessage(socketChannel, readMessage);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                //客户端断开连接时处理
+                selectionKey.cancel();
+                socketChannel.socket().close();
+                socketChannel.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    private static void sendMessage(SocketChannel socketChannel, String readMessage) throws IOException {
+        String key = null;
+        for (Map.Entry<String, SocketChannel> entry : clientChannelCache.entrySet()) {
+            if (socketChannel == entry.getValue()) {
+                key = entry.getKey();
+                break;
+            }
+        }
+        for (Map.Entry<String, SocketChannel> entry : clientChannelCache.entrySet()) {
+            SocketChannel channel = entry.getValue();
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+            byteBuffer.put((key + ":" + readMessage).getBytes());
+            byteBuffer.flip();
+            channel.write(byteBuffer);
         }
     }
 
     private static void handleWritable(SelectionKey selectionKey) {
+
     }
 
 }
