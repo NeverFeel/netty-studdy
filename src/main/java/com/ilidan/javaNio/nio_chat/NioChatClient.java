@@ -9,6 +9,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
@@ -71,15 +72,20 @@ public class NioChatClient {
 
             StringBuilder sb = new StringBuilder();
             Charset charset = Charset.forName("utf-8");
+            CharsetDecoder charsetDecoder = charset.newDecoder();
+
             while (true) {
                 int count = socketChannel.read(byteBuffer);
                 if (count <= 0) {
                     break;
                 }
                 byteBuffer.flip();
-                while (byteBuffer.hasRemaining()){
-                    sb.append(String.valueOf((char)byteBuffer.get()));//有乱码问题
-                }
+
+                sb.append(String.valueOf(charsetDecoder.decode(byteBuffer).array()));
+
+//                while (byteBuffer.hasRemaining()){
+//                    sb.append(String.valueOf((char)byteBuffer.get()));//有乱码问题
+//                }
                 byteBuffer.clear();//清空buffer，重新开始读
             }
 

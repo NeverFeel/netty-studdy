@@ -103,10 +103,25 @@ public class NioChatServer {
             }
         } catch (IOException e) {
             try {
+                //删除缓存中的channel
+                String key = null;
+                for (Map.Entry<String, SocketChannel> entry : clientChannelCache.entrySet()) {
+                    if (socketChannel == entry.getValue()) {
+                        key = entry.getKey();
+                        break;
+                    }
+                }
+
+                if(key!=null){
+                    System.out.println("从缓存中删除key："+key);
+                    clientChannelCache.remove(key);
+                }
+
                 //客户端断开连接时处理
                 selectionKey.cancel();
                 socketChannel.socket().close();
                 socketChannel.close();
+
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
